@@ -21,6 +21,12 @@ section {
     margin-right:10vh; */
   }
 
-footer {
-    /* height: 100px; */
+/* footer {
+    height: 100px; 
+} */
+
+#map-marker {
+    height: 300px;
+    background-color:blue;
 }
+
