@@ -7,9 +7,9 @@ body {
     background-color: #fdf7dd;
 }
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
     background-color: #fdf7dd;
     margin: 0;
     border-bottom: 2px solid;
@@ -22,22 +22,24 @@ h1 {
     font-family: 'Sylfaen'; /*'Sylfaen'*/
     font-weight: bold;
     font-size: 5vh;
-    flex: 1;
+    flex-grow: 1;
     text-align: center;
+    margin-top: 10px;
+    margin-right: 4vw;
 }
 
 /*Ham Menus*/
 .ham-menu {
     font-size: 5vh;
-    margin-left: 1vw;
     cursor: pointer;
+    flex-grow: 0;
 }
 .sidebar {
     display: none; /* Initially hidden */
     position: fixed;
     top: 0;
     left: 0;
-    width: 20vw; /* Width of the sidebar */
+    width: 20vw;
     height: 100%;
     background-color: #fdf7dd;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
