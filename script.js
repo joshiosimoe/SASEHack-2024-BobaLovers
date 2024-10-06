@@ -75,22 +75,30 @@ async function initMap() {
     function createEventInfoWindow() {
         const eventInfoWindowContent = `
         <form id="event-form" onsubmit="event.preventDefault(); submitEvent()" class="gm-style-iw-d">
-            <h3>Create Event</h3>
+            <h5>Create Event</h5>
 
+            
+            <input id="title-input" type="text" placeholder="Add Title">
 
-            <p id="title-input-label">Title</p>
-            <input id="title-input" type="text">
-            <p id="hostname-input-label">Host Name</p>
-            <input id="hostname-input" type="text">
-            <p id="date-input-label">Date</p>
+            <input id="hostname-input" type="text" placeholder="Host">
+
+            <label class="form-label" id="date-input-label">Date:</label>
             <input id="date-input" type="date">
-            <p>Time Input</p>
+
+            <label class="form-label">Time:</label>
             <input id="time-input" type="time">
-            <p>Description</p>
-            <input id="description-input" type="text">
+
+            <textarea id="description-input" type="text" placeholder="Description"></textarea>
             <button class="btn btn-primary btn-sm" id="submit-event-button" type="submit">Submit</button>
         </form>
         `
+
+        // ARCHIVE
+        // <label class="form-label"id="title-input-label">Title</label>
+        // <label class="form-label" id="hostname-input-label">Host Name</label>
+        // <label class="form-label" id="date-input-label">Date</label>
+        // <label class="form-label">Time</label>
+        // <label class="form-label">Description</label>
 
         infoWindow.setContent(eventInfoWindowContent);
         infoWindow.open(map, marker);
@@ -162,12 +170,11 @@ function submitEvent() {
 
     function createInfoWindows() {
         const infoWindowContent = `
-            <div class="marker-content">
-                <h1>${title}</h1>
-                <p>by: ${hostName}</p>
-                <p>${date}</p>
-                <p>${time}</p>
-                <p>${description}</p>
+            <div class="marker-info">
+                <h5>${title}</h5>
+                <p id="marker-info-host">By: ${hostName}</p>
+                <p id="marker-info-when">${date} at ${time}</p>
+                <p id="marker-info-description">${description}</p>
             </div>
         `;
 
@@ -175,12 +182,6 @@ function submitEvent() {
         infoWindow.open(map, marker);
     }
     
-    const infoWindowContent = `
-        <div class="marker-content">
-            <h1>Event Title</h1>
-            <p>Description</p>
-        </div>
-    `;
     console.log("Checkpoint #3", marker);
     const eventObject = { id: ++id, title: title, hostName: hostName, date: date, time: time, description: description, markerLat: marker.position.lat, markerLng: marker.position.lng };
     events.push(eventObject);
