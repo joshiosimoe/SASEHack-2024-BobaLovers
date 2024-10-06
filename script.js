@@ -274,3 +274,28 @@ function returnDate(date) {
     year = date.splice(0,4);
     month = date.splice
 }
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerMenu = document.getElementById("hamburgerMenu");
+    const slideMenu = document.getElementById("slideMenu");
+
+    
+    hamburgerMenu.addEventListener("click", function () {
+        slideMenu.classList.toggle("open"); 
+
+        
+        if (slideMenu.classList.contains("open")) {
+            // hamburgerMenu.innerHTML = '&times;'; 
+            hamburgerMenu.classList.add("open"); 
+        } else {
+            // hamburgerMenu.innerHTML = '&#9776;'; 
+            hamburgerMenu.classList.remove("open"); 
+        }
+    });
+});
