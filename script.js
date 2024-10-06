@@ -269,3 +269,7 @@ window.addEventListener('click', function(event) {
     }
 });
 
+function returnDate(date) {
+    year = date.splice(0,4);
+    month = date.splice
+}
