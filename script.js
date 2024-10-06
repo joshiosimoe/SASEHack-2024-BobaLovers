@@ -248,9 +248,11 @@ function moveMapToMarkerAtCenter(id, initLat, initLng) {
 const hamburgerMenu = document.getElementById('hamburgerMenu');
 const sidebar = document.getElementById('sidebar');
 const closeSidebar = document.getElementById('closeSidebar');
+const section = document.querySelector('section');
 
 // Function to open the sidebar
 hamburgerMenu.addEventListener('click', function() {
+    sidebar.style.height = `${section.offsetHeight}px`;
     sidebar.style.display = 'block'; // Show the sidebar
 });
 
