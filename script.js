@@ -247,28 +247,23 @@ function moveMapToMarkerAtCenter(id, initLat, initLng) {
 // Get the hamburger menu and sidebar elements
 const hamburgerMenu = document.getElementById('hamburgerMenu');
 const sidebar = document.getElementById('sidebar');
-const closeSidebar = document.getElementById('closeSidebar');
 const section = document.querySelector('section');
+
+let isSidebarOpen = false; // Tracks state of sidebar
 
 // Function to open the sidebar
 hamburgerMenu.addEventListener('click', function() {
-    const sectionTop = section.offsetTop; // Get the top position of the section
-    const sectionHeight = section.offsetHeight; // Get the height of the section
+    if (!isSidebarOpen) {
+        const sectionTop = section.offsetTop; // Get the top position of the section
+        const sectionHeight = section.offsetHeight; // Get the height of the section
 
-    sidebar.style.height = `${sectionHeight}px`;
-    sidebar.style.top = `${sectionTop}px`;
-    sidebar.style.display = 'block'; // Show the sidebar
-});
-
-// Function to close the sidebar
-closeSidebar.addEventListener('click', function() {
-    sidebar.style.display = 'none'; // Hide the sidebar
-});
-
-// Close sidebar when clicking outside of it
-window.addEventListener('click', function(event) {
-    if (event.target === sidebar) {
-        sidebar.style.display = 'none'; // Hide if clicking outside
+        sidebar.style.height = `${sectionHeight}px`;
+        sidebar.style.top = `${sectionTop}px`;
+        sidebar.style.display = 'block'; // Show the sidebar
+        isSidebarOpen = true; // Update the state
+    }
+    else {
+        sidebar.style.display = 'none'; // Hide the sidebar
+        isSidebarOpen = false; // Update the state
     }
 });
-
