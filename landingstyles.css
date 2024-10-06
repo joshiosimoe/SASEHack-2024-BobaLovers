@@ -9,13 +9,104 @@
       display: flex;
       flex-direction: column;
   }
-  
+
+ /* .hero h1 {
+    overflow: hidden; 
+    border-right: .10em solid orange; 
+    white-space: nowrap; 
+    margin: 20 auto; 
+    letter-spacing: 0em; 
+    text-align: center;
+    animation: 
+      typing 1s steps(50, end),
+      blink-caret .75s step-end infinite;
+    border-right: none;
+  }
+.hero p {
+    overflow: hidden; 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: 0em; 
+    text-align: center;
+    width: 0; 
+    border-right: none;
+    animation: 
+      typing 1s steps(50, end) 1s forwards, 
+      blink-caret .75s step-end infinite 1s; 
+} */
+.hero h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .10em solid rgb(0, 0, 0); /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 20 auto; /* Centers the text */
+    letter-spacing: 0em; /* Adjust as needed */
+    animation: 
+      typing 2s steps(50, end) forwards, /* Keep the text visible after typing */
+      blink-caret .75s step-end infinite, /* Cursor blink animation */
+      hide-cursor 1s forwards 0s; /* Hide cursor after typing */
+}
+
+.hero p {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 20 auto; /* Centers the text */
+    letter-spacing: 0em; /* Adjust as needed */
+    width: 0; /* Initially hide text */
+    border-right: .10em solid rgb(0, 0, 0); /* The typewriter cursor */
+    opacity: 0; /* Hide the text initially */
+    animation: 
+      typing 2s steps(50, end) 2s forwards, /* Start typing after delay */
+      blink-caret .75s step-end infinite 1s; /* Start caret blink after delay */
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { 
+    width: 0; 
+    opacity: 1; /* Ensure visibility during typing */
+  }
+  to { 
+    width: 13.6em; 
+    opacity: 1; /* Keep text visible after typing */
+  }
+}
+
+/* The typewriter cursor blink effect */
+@keyframes blink-caret {
+  0% {
+    border-color: transparent; /* Initially transparent */
+  }
+  50% {
+    border-color: rgb(0, 0, 0); /* Blink color */
+  }
+  100% {
+    border-color: transparent; /* Hide at the end of the cycle */
+  }
+}
+
+/* New animation to hide the cursor in h1 */
+@keyframes hide-cursor {
+    0% {
+      border-right: .10em solid rgb(0, 0, 0); /* Start with visible cursor */
+    }
+    99% {
+      border-right: .10em solid rgb(0, 0, 0); /* Keep visible until the last moment */
+    }
+    100% {
+      border-right: none; /* Hide cursor immediately */
+    }
+  }
+
+
+ 
   /* Header styling */
   header {
-      background-color: #fdf7dd;
-      margin-top: 4vh;
-      flex-shrink: 0;
+    background-color: #fdf7dd;
+    margin-top: 4vh;
+    flex-shrink: 0;
   }
+  
+  
   .container {
       display: flex;
       justify-content: space-between;
