@@ -25,14 +25,16 @@ section {
     height: 100px; 
 } */
 
-#map-marker {
-    height: 300px;
-    background-color:blue;
-}
+
 
 
 /* Marker Content */
 .marker-content {
     padding: 0;
     margin: 0;
+}
+
+#event-form p {
+    margin:0;
+    padding:0;
 }
