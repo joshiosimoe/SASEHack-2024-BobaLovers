@@ -148,7 +148,7 @@ function submitEvent() {
 
     const infoWindow = new google.maps.InfoWindow({
         minWidth: 200,
-        maxWidth: 400
+        maxWidth: 200
     });
 
     google.maps.event.addListener(marker, 'click', function (event) {
@@ -171,9 +171,11 @@ function submitEvent() {
     function createInfoWindows() {
         const infoWindowContent = `
             <div class="marker-info">
-                <h5>${title}</h5>
-                <p id="marker-info-host">By: ${hostName}</p>
+                <h5 id="marker-info-title">${title}</h5>
+                <span id="marker-info-host">Host: ${hostName}<br /></span>
+                
                 <p id="marker-info-when">${date} at ${time}</p>
+
                 <p id="marker-info-description">${description}</p>
             </div>
         `;

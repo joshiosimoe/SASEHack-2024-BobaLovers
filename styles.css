@@ -200,8 +200,16 @@ section {
 
 
 
-
+.marker-info {
+    padding:0;
+    margin: 0;
+}
 /* Marker Info Window Content */
+
+.marker-info h5 {
+    padding-top:10px;
+}
+
 #marker-info-host{
 
 }
