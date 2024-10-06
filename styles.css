@@ -8,7 +8,7 @@ body {
 }
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: #fdf7dd;
     margin: 0;
@@ -22,62 +22,42 @@ h1 {
     font-family: 'Sylfaen'; /*'Sylfaen'*/
     font-weight: bold;
     font-size: 5vh;
+    flex: 1;
+    text-align: center;
 }
 
 /*Ham Menus*/
-.offscreen-ham {
-    background-color: #fdf7dd;
-    height: 100vh;
-    width: 100%;
-    max-width: 20vw;
+.ham-menu {
+    font-size: 5vh;
+    margin-left: 1vw;
+    cursor: pointer;
+}
+.sidebar {
+    display: none; /* Initially hidden */
     position: fixed;
     top: 0;
-    left: -20vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    font-size: 1rem;
-    font-family: 'Sylfaen';
-    transition: .3s ease;
+    right: 0;
+    width: 20vw; /* Width of the sidebar */
+    height: 100%;
+    background-color: #fdf7dd;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 1000; /* Sit on top */
 }
-.offscreen-ham.active {
-    left: 0;
+
+.sidebar ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
 }
-.ham-menu {
-    height: 50px;
-    width: 50px;
-    margin-right: auto;
-    position: relative;
+
+.sidebar ul li {
+    margin: 10px 0; /* Space between items */
 }
-.ham-menu span {
-    height: 5px;
-    width: 50px;
-    background-color: black;
-    border-radius: 25px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: .3s ease;
-}
-.ham-menu span:nth-child(1) {
-    top: 25%;
-}
-.ham-menu span:nth-child(3) {
-    top: 75%;
-}
-.ham-menu.active span:nth-child(1) {
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-.ham-menu.active span:nth-child(2) {
-    opacity: 0;
-}
-.ham-menu.active span:nth-child(3) {
-    top: 50%;
-    transform: translate(-50%, 50%) rotate(-45deg);
+
+.sidebar .close {
+    font-size: 30px;
+    cursor: pointer; /* Change cursor on hover */
+    float: right; /* Align to the right */
 }
 
 section {
