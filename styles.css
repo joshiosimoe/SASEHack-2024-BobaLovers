@@ -36,15 +36,14 @@ h1 {
     flex-grow: 0;
 }
 .sidebar {
-    display: none; /* Initially hidden */
+    display: none; 
     position: absolute;
-    top: 0;
     left: 0;
     width: 25vw;
     background-color: #fdf7dd;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     padding: 20px;
-    z-index: 1000; /* Sit on top */
+    z-index: 1000; 
 }
 
 .sidebar ul {

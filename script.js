@@ -252,7 +252,11 @@ const section = document.querySelector('section');
 
 // Function to open the sidebar
 hamburgerMenu.addEventListener('click', function() {
-    sidebar.style.height = `${section.offsetHeight}px`;
+    const sectionTop = section.offsetTop; // Get the top position of the section
+    const sectionHeight = section.offsetHeight; // Get the height of the section
+
+    sidebar.style.height = `${sectionHeight}px`;
+    sidebar.style.top = `${sectionTop}px`;
     sidebar.style.display = 'block'; // Show the sidebar
 });
 
