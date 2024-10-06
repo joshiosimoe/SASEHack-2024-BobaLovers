@@ -1,0 +1,89 @@
+/* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }*/ 
+  body {
+      font-family: 'Piazzolla';
+      background-color: #fdf7dd;
+      color: #080808;
+      height:100vh;
+  }
+  
+  /* Header styling */
+  header {
+      background-color: #fdf7dd;
+      font-family: 'Roboto';font-size: 40px;
+      margin-left: 20px;
+      margin-top: 10px;
+      margin-right: 20px;
+  }
+  .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .logo {
+      font-family: 'Roboto';
+      font-weight: bold;
+  }
+  
+  /* Navigation */
+  nav ul {
+      list-style: none;
+  }
+  nav ul li {
+      display: inline;
+  }
+  nav ul li a {
+      text-decoration: none;
+      color: #080808;
+      font-size: 30px;
+      margin-left: 20px;
+  }
+  
+  /* Main Section */
+  .hero {
+      background-color: #fdf7dd;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 50px;
+      margin: 50px 0;
+  }
+  .hero h1 {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      font-size: 100px;
+      font-weight: bold;
+      margin-bottom: 30px;
+  }
+  .hero p {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 100px;
+      font-weight: bold;
+      margin-bottom: 150px;
+      color: #080808;
+  }
+  
+  /* Button styling */
+  .btn {
+      background-color: #fdf7dd;
+      font-family: 'Roboto';
+      color: #080808;
+      font-size: 40px;
+      padding: 5px 40px;
+      text-decoration: none;
+      border: 5px solid black;
+      border-radius: 10px;
+      border-color: #080808;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+  }
+  .btn:hover {
+      background-color: #f7f3ca;
+  }
