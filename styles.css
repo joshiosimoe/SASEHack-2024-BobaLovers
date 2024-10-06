@@ -3,14 +3,26 @@ body {
     margin:0;
     padding:0;
     display: flex;
-    flex-direction:column
+    flex-direction:column;
+    background-color: #fdf7dd;
 }
 nav {
-    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fdf7dd;
+    margin: 0;
     border-bottom: 2px solid;
-
 }
-
+h1 {
+    margin: 1rem;
+    padding: 0;
+}
+.logo {
+    font-family: 'Sylfaen'; /*'Sylfaen'*/
+    font-weight: bold;
+    font-size: 5vh;
+}
 section {
     flex: auto;
 }
