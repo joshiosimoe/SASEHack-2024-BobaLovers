@@ -169,3 +169,29 @@ function submitEvent() {
 
     markers.shift();
 }
+
+
+
+/////// Hamburger side bar ///////
+
+// Get the hamburger menu and sidebar elements
+const hamburgerMenu = document.getElementById('hamburgerMenu');
+const sidebar = document.getElementById('sidebar');
+const closeSidebar = document.getElementById('closeSidebar');
+
+// Function to open the sidebar
+hamburgerMenu.addEventListener('click', function() {
+    sidebar.style.display = 'block'; // Show the sidebar
+});
+
+// Function to close the sidebar
+closeSidebar.addEventListener('click', function() {
+    sidebar.style.display = 'none'; // Hide the sidebar
+});
+
+// Close sidebar when clicking outside of it
+window.addEventListener('click', function(event) {
+    if (event.target === sidebar) {
+        sidebar.style.display = 'none'; // Hide if clicking outside
+    }
+});
