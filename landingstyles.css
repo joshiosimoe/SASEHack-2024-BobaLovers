@@ -1,8 +1,4 @@
-/* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }*/ 
+
   body {
       font-family: 'Piazzolla';
       background-color: #fdf7dd;
@@ -17,9 +13,7 @@
   /* Header styling */
   header {
       background-color: #fdf7dd;
-      font-family: 'Roboto';
-      font-size: 40px;
-      padding: 10px 20px;
+      margin-top: 4vh;
       flex-shrink: 0;
   }
   .container {
@@ -28,24 +22,28 @@
       align-items: center;
   }
   .logo {
-      font-family: 'Roboto';
+      font-family: 'Sylfaen'; /*'Sylfaen'*/
       font-weight: bold;
+      font-size: 5vh;
+      margin-left: 3vw;
+
   }
   
   /* Navigation */
   nav ul {
       list-style: none;
-      margin: 0;
       padding: 0;
   }
   nav ul li {
       display: inline;
   }
   nav ul li a {
+      font-family: 'Piazzolla';
+      font-weight: bold;
+      font-size: 3.5vh;
+      margin-right: 3vw;
       text-decoration: none;
       color: #080808;
-      font-size: 30px;
-      margin-left: 20px;
   }
   
   /* Main Section */
@@ -76,11 +74,11 @@
       text-align: center;
       justify-content: center;
       align-items: center;
-      margin-top: 10px;
-      font-size: 7vw;
       margin: 0; 
-      margin-bottom: 10px;
       padding: 0;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 7vw;
       font-weight: bold;
   }
   .hero p {
@@ -100,21 +98,22 @@
     flex-shrink: 0; 
     text-align: center;
     padding: 0;
+    margin-bottom: 5vh;
   }
   button {
       padding: 0.5rem 1rem;
-      background-color: #fdf7dd;
+      background-color: #f7f3ca;
       font-family: 'Piazzolla';
-      font-size: 40px;
+      font-size: 2rem;
       text-decoration: none;
       color: #080808;
-      border: 5px solid black;
-      border-radius: 10px;
+      border: 4px solid black;
+      border-radius: 20px;
       border-color: #080808;
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s ease;
       cursor: pointer;
   }
   button:hover {
-      background-color: #f7f3ca;
+      background-color: #eaec74;
   }
