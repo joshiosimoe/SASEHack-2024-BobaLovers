@@ -250,7 +250,9 @@ function moveMapToMarkerAtCenter(id, initLat, initLng) {
 // Get the hamburger menu and sidebar elements
 const hamburgerMenu = document.getElementById('hamburgerMenu');
 const sidebar = document.getElementById('sidebar');
-const closeSidebar = document.getElementById('closeSidebar');
+const section = document.querySelector('section');
+
+let isSidebarOpen = false; // Tracks state of sidebar
 
 // Function to open the sidebar
 hamburgerMenu.addEventListener('click', function() {

@@ -7,12 +7,13 @@ body {
     background-color: #fdf7dd;
 }
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
     background-color: #fdf7dd;
     margin: 0;
     border-bottom: 2px solid;
+    border-color: #9fa5aa;
 }
 h1 {
     margin: 1rem;
@@ -22,27 +23,26 @@ h1 {
     font-family: 'Sylfaen'; /*'Sylfaen'*/
     font-weight: bold;
     font-size: 5vh;
-    flex: 1;
+    flex-grow: 1;
     text-align: center;
+    margin-top: 10px;
+    margin-right: 4vw;
 }
 
 /*Ham Menus*/
 .ham-menu {
     font-size: 5vh;
-    margin-left: 1vw;
     cursor: pointer;
+    flex-grow: 0;
 }
 .sidebar {
-    display: none; /* Initially hidden */
-    position: fixed;
-    top: 0;
+    display: none; 
+    position: absolute;
     left: 0;
-    width: 20vw; /* Width of the sidebar */
-    height: 100%;
+    width: 25vw;
     background-color: #fdf7dd;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     padding: 20px;
-    z-index: 1000; /* Sit on top */
+    z-index: 1000; 
 }
 
 .sidebar ul {
