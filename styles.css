@@ -66,6 +66,9 @@ h1 {
 h2 {
     font-size: 25px !important;
     font-family: 'Roboto';
+    padding-bottom: 5px;
+    border-bottom: 2px solid;
+    border-color: #9fa5aa;
 }
 
 section {
@@ -190,8 +193,6 @@ section {
 
 /* EVENT LIST ON LEFT PANEL */
 #event-list-title {
-    border-top: 2px solid;
-    border-color: #9fa5aa;
     margin-top: 5px;
     padding-left: 10px;
     margin-bottom: 0 !important;
@@ -224,6 +225,13 @@ section {
     margin-right: 10px;
     margin-top: 0;
     margin-bottom: 0;
+}
+.event-line {
+    margin-top: 5px; /* Space above the line */
+    border: none; /* Remove default border */
+    border-top: 2px solid; 
+    border-color: #9fa5aa; /* Line style */
+    width: 100%; /* Full width */
 }
 
 
