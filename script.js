@@ -143,6 +143,10 @@ function submitEvent() {
         marker.content = pinScaledUp.element;
     });
 
+    // google.maps.event.addListener('moveMapToMarkerEvent', () => {
+    //     marker.content = pinScaledUp.element;
+    // })
+
     google.maps.event.addListener(infoWindow, 'closeclick', () => {
         marker.content = pinScaledDown.element;
         console.log('InfoWindow closed!');
@@ -173,10 +177,58 @@ function submitEvent() {
     console.log("Checkpoint #3", marker);
     const eventObject = { id: ++id, title: title, hostName: hostName, date: date, time: time, description: description, markerLat: marker.position.lat, markerLng: marker.position.lng };
     events.push(eventObject);
+    eventObject.marker = marker;
     console.log("Checkpoints #4", eventObject.marker);
     document.getElementById("liveEvents").innerHTML = generateEventsList();
 
     markers.shift();
+}
+
+function generateEventsList()
+{
+    return events.map(event => 
+        `
+        <div key=${event.id}>
+        <p>${event.title}</p>
+        <p>${event.hostName}</p>
+        <p>${event.date}</p>
+        <p>${event.time}</p>
+        <button type="button" onClick="moveMapToMarkerAtCenter(${event.id}, ${event.markerLat}, ${event.markerLng})">See Location</button>
+        </div>
+        `).join('');
+}
+
+function moveMapToMarkerAtCenter(id, initLat, initLng) {
+    // const event = new Event('moveMapToMarkerEvent');
+    // this.dispatchEvent(event);
+    // console.log("initMarker", initMarker);
+    const markerLocation = { lat: initLat, lng: initLng }
+    map.setCenter(markerLocation);
+    events[id - 1].marker.content = pinScaledUp.element;
+
+    const infoWindow = new google.maps.InfoWindow({
+        minWidth: 200,
+        maxWidth: 200
+    });
+
+    const infoWindowContent = `
+            <div class="marker-content">
+                <h1>${events[id - 1].title}</h1>
+                <p>by: ${events[id - 1].hostName}</p>
+                <p>${events[id - 1].date}</p>
+                <p>${events[id - 1].time}</p>
+                <p>${events[id - 1].description}</p>
+            </div>
+        `;
+
+        infoWindow.setContent(infoWindowContent);
+        infoWindow.open(map, events[id - 1].marker);
+
+        google.maps.event.addListener(infoWindow, 'closeclick', () => {
+            events[id - 1].marker.content = pinScaledDown.element;
+            console.log('InfoWindow closed!');
+            // You can perform additional actions here
+        });
 }
 
 
@@ -204,38 +256,3 @@ window.addEventListener('click', function(event) {
         sidebar.style.display = 'none'; // Hide if clicking outside
     }
 });
-
-function generateEventsList()
-{
-    return events.map(event => 
-        `
-        <div key=${event.id}>
-        <p>${event.title}</p>
-        <p>${event.hostName}</p>
-        <p>${event.date}</p>
-        <p>${event.time}</p>
-        <p>${event.markerLat}</p>
-        <p>${event.markerLng}</p>
-        <button type="button" onClick="moveMapToMarkerAtCenter(${event.markerLat}, ${event.markerLng})">See Location</button>
-        </div>
-        `).join('');
-}
-
-// class Event {
-
-//     Event(marker, title, hostName, date, time, description) {
-//         this.marker = marker;
-//         this.title = title;
-//         this.hostName = hostName;
-//         this.date = date;
-//         this.time = time;
-//         this.description = description;
-//     }
-// }
-
-function moveMapToMarkerAtCenter(initLat, initLng) {
-    // console.log(initMarker);
-    // const tempMarker = initMarker;
-    const markerLocation = { lat: initLat, lng: initLng }
-    map.setCenter(markerLocation);
-}
