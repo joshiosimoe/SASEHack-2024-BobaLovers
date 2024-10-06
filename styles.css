@@ -25,9 +25,6 @@ section {
     height: 100px; 
 } */
 
-
-
-
 /* Marker Content */
 .marker-content {
     padding: 0;
@@ -38,3 +35,36 @@ section {
     margin:0;
     padding:0;
 }
+
+#event-form {
+    margin: 0; 
+    padding: 0; 
+}
+
+#event-form h1 {
+    margin: 0;
+    padding: 0;
+}
+
+#event-form p {
+    margin: 0;
+    padding: 0;
+}
+
+#event-form input {
+    margin: 5px 0; /* Adjust as needed */
+}
+
+
+/* <h1>Create Event</h1>
+            <p>Title</p>
+            <input id="titleInput" type="text" autocomplete="off">
+            <p>Host Name</p>
+            <input id="hostNameInput" type="text" autocomplete="off">
+            <p>Date</p>
+            <input id="dateInput" type="text" autocomplete="off">
+            <p>Time Input</p>
+            <input id="timeInput" type="text" autocomplete="off">
+            <p>Description</p>
+            <input id="descriptionInput" type="text" autocomplete="off">
+            <button type="submit">Submit</button>*/

@@ -3,6 +3,8 @@ let placeMarker = false;
 let creatingEvent = false;
 let markers = [];
 let currentMarkerInfoWindow;
+let pinScaleDown;
+let pinScaleUp;
 
 // Initializing Google Maps API
 (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
@@ -42,9 +44,16 @@ async function initMap() {
 
         displayCoordinates(event.latLng);
         
+        pinScaledUp = new PinElement({
+            scale: 1.5,
+          });
+        pinScaledDown = new PinElement({
+            scale: 1.0,
+        })
         const marker = new google.maps.marker.AdvancedMarkerElement({
             position: { lat: event.latLng.lat(), lng: event.latLng.lng() },
             map,
+            content: pinScaledUp.element,
             title: "Hello World!",
         });
 
@@ -64,15 +73,15 @@ async function initMap() {
         <form id="event-form" onsubmit="event.preventDefault(); submitEvent()">
             <h1>Create Event</h1>
             <p>Title</p>
-            <input id="titleInput" type="text">
+            <input id="titleInput" type="text" autocomplete="off">
             <p>Host Name</p>
-            <input id="hostNameInput" type="text">
+            <input id="hostNameInput" type="text" autocomplete="off">
             <p>Date</p>
-            <input id="dateInput" type="text">
+            <input id="dateInput" type="date" autocomplete="off">
             <p>Time Input</p>
-            <input id="timeInput" type="text">
+            <input id="timeInput" type="time" autocomplete="off">
             <p>Description</p>
-            <input id="descriptionInput" type="text">
+            <input id="descriptionInput" type="text" autocomplete="off">
             <button type="submit">Submit</button>
         </form>
         `
@@ -81,25 +90,14 @@ async function initMap() {
         infoWindow.open(map, marker);
     }
 
+    google.maps.event.addListener(infoWindow, 'closeclick', () => {
+        currentMarker.setMap(null);
+        console.log('InfoWindow closed!');
+        // You can perform additional actions here
+    });
+
     createEventInfoWindow();
         
-        // function createInfoWindows() {
-        //     const infoWindowContent = `
-        //         <div class="marker-content">
-        //             <h1>Event Title</h1>
-        //             <p>Description</p>
-        //         </div>
-        //     `;
-    
-        //     infoWindow.setContent(infoWindowContent);
-        //     infoWindow.open(map, marker);
-        // }
-
-        // google.maps.event.addListener(marker, 'click', function (event) {
-        //     creatingEvent = true;
-        //     console.log(creatingEvent);
-        //     createInfoWindows();
-        // });
     });
 
     // Displays mouse coordinates in lat/lng in console
@@ -121,11 +119,13 @@ function submitEvent() {
     const time = document.getElementById("timeInput").value;
     const description = document.getElementById("descriptionInput").value;
     
-    console.log("Event Variables: " + title) + " " + hostName + " " + date + " " + time + " " + description;
+    console.log("Event Variables: " + title + " " + hostName + " " + date + " " + time + " " + description);
 
     currentMarkerInfoWindow.close();
 
     const marker = markers[0];
+    
+    marker.content = pinScaledDown.element;
 
     const infoWindow = new google.maps.InfoWindow({
         minWidth: 200,
@@ -136,15 +136,23 @@ function submitEvent() {
         creatingEvent = true;
         console.log(creatingEvent);
         createInfoWindows();
+        marker.content = pinScaledUp.element;
+    });
 
-        
+    google.maps.event.addListener(infoWindow, 'closeclick', () => {
+        marker.content = pinScaledDown.element;
+        console.log('InfoWindow closed!');
+        // You can perform additional actions here
     });
 
     function createInfoWindows() {
         const infoWindowContent = `
             <div class="marker-content">
-                <h1>Event Title</h1>
-                <p>Description</p>
+                <h1>${title}</h1>
+                <p>by: ${hostName}</p>
+                <p>${date}</p>
+                <p>${time}</p>
+                <p>${description}</p>
             </div>
         `;
 
