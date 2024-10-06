@@ -261,6 +261,8 @@ hamburgerMenu.addEventListener('click', function() {
         sidebar.style.top = `${sectionTop}px`;
         sidebar.style.display = 'block'; // Show the sidebar
         isSidebarOpen = true; // Update the state
+        // Comment
+
     }
     else {
         sidebar.style.display = 'none'; // Hide the sidebar
