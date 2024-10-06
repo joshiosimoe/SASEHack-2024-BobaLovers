@@ -200,12 +200,11 @@ function generateEventsList()
         `
         <div key=${event.id}>
         <p id="event-list-title">${event.title}</p>
-        <p id="event-list-hostName">${event.hostName}</p>
-        <p id="event-list-date">${event.date}</p>
-        <p id="event-list-time">${event.time}</p>
-        <p id="event-list-description">${event.description}</p>
+        <p id="event-list-hostName">Hosted by: ${event.hostName}</p>
+        <p id="event-list-date">When: ${event.date} at ${event.time}</p>
+        <p id="event-list-description">Description: ${event.description}</p>
 
-        <button type="button" onClick="moveMapToMarkerAtCenter(${event.id}, ${event.markerLat}, ${event.markerLng})">See Location</button>
+        <button id="event-list-location" type="button" onClick="moveMapToMarkerAtCenter(${event.id}, ${event.markerLat}, ${event.markerLng})">See Location</button>
         </div>
         `).join('');
 }
@@ -226,7 +225,7 @@ function moveMapToMarkerAtCenter(id, initLat, initLng) {
     const infoWindowContent = `
             <div class="marker-content">
                 <h1>${events[id - 1].title}</h1>
-                <p>by: ${events[id - 1].hostName}</p>
+                <p>By: ${events[id - 1].hostName}</p>
                 <p>${events[id - 1].date}</p>
                 <p>${events[id - 1].time}</p>
                 <p>${events[id - 1].description}</p>

@@ -43,6 +43,8 @@ h1 {
     background-color: #fdf7dd;
     padding: 20px;
     z-index: 1000; 
+    border-right: 2px solid;
+    border-color: #9fa5aa;
 }
 
 .sidebar ul {
@@ -58,6 +60,12 @@ h1 {
     font-size: 30px;
     cursor: pointer; /* Change cursor on hover */
     float: right; /* Align to the right */
+}
+
+/* For Sidebar */
+h2 {
+    font-size: 25px !important;
+    font-family: 'Roboto';
 }
 
 section {
@@ -181,23 +189,42 @@ section {
 } */
 
 /* EVENT LIST ON LEFT PANEL */
-
 #event-list-title {
-    
+    border-top: 2px solid;
+    border-color: #9fa5aa;
+    margin-top: 5px;
+    padding-left: 10px;
+    margin-bottom: 0 !important;
+    font-weight: bold;
 }
-
 #event-list-hostName {
-
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
 #event-list-date {
-
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
 #event-list-time {
-
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
+#event-list-description {
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#event-list-location {
+    /*margin-left: 10px;*/
+    display: flex;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
 
 .marker-info {
