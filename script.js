@@ -2,9 +2,11 @@ let map;
 let placeMarker = false;
 let creatingEvent = false;
 let markers = [];
+let events = [];
 let currentMarkerInfoWindow;
 let pinScaleDown;
 let pinScaleUp;
+let id = 0;
 
 // Initializing Google Maps API
 (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
@@ -58,6 +60,7 @@ async function initMap() {
         });
 
         currentMarker = marker;
+        console.log("Marker Position:", marker.position.lat + " and " + marker.position.lng);
 
         markers.push(marker);
             
@@ -118,13 +121,14 @@ function submitEvent() {
     const date = document.getElementById("dateInput").value;
     const time = document.getElementById("timeInput").value;
     const description = document.getElementById("descriptionInput").value;
-    
+
+    console.log("markers[0]", markers[0]);
+    const marker = markers[0];
+
     console.log("Event Variables: " + title + " " + hostName + " " + date + " " + time + " " + description);
 
     currentMarkerInfoWindow.close();
 
-    const marker = markers[0];
-    
     marker.content = pinScaledDown.element;
 
     const infoWindow = new google.maps.InfoWindow({
@@ -166,6 +170,11 @@ function submitEvent() {
             <p>Description</p>
         </div>
     `;
+    console.log("Checkpoint #3", marker);
+    const eventObject = { id: ++id, title: title, hostName: hostName, date: date, time: time, description: description, markerLat: marker.position.lat, markerLng: marker.position.lng };
+    events.push(eventObject);
+    console.log("Checkpoints #4", eventObject.marker);
+    document.getElementById("liveEvents").innerHTML = generateEventsList();
 
     markers.shift();
 }
@@ -195,3 +204,38 @@ window.addEventListener('click', function(event) {
         sidebar.style.display = 'none'; // Hide if clicking outside
     }
 });
+
+function generateEventsList()
+{
+    return events.map(event => 
+        `
+        <div key=${event.id}>
+        <p>${event.title}</p>
+        <p>${event.hostName}</p>
+        <p>${event.date}</p>
+        <p>${event.time}</p>
+        <p>${event.markerLat}</p>
+        <p>${event.markerLng}</p>
+        <button type="button" onClick="moveMapToMarkerAtCenter(${event.markerLat}, ${event.markerLng})">See Location</button>
+        </div>
+        `).join('');
+}
+
+// class Event {
+
+//     Event(marker, title, hostName, date, time, description) {
+//         this.marker = marker;
+//         this.title = title;
+//         this.hostName = hostName;
+//         this.date = date;
+//         this.time = time;
+//         this.description = description;
+//     }
+// }
+
+function moveMapToMarkerAtCenter(initLat, initLng) {
+    // console.log(initMarker);
+    // const tempMarker = initMarker;
+    const markerLocation = { lat: initLat, lng: initLng }
+    map.setCenter(markerLocation);
+}

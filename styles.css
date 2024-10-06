@@ -36,7 +36,7 @@ h1 {
     display: none; /* Initially hidden */
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     width: 20vw; /* Width of the sidebar */
     height: 100%;
     background-color: #fdf7dd;
