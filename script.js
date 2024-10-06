@@ -71,21 +71,24 @@ async function initMap() {
         }
         console.log("markers", markers);
 
+        // Add autocomplete="off" to everything after finished
     function createEventInfoWindow() {
         const eventInfoWindowContent = `
-        <form id="event-form" onsubmit="event.preventDefault(); submitEvent()">
-            <h1>Create Event</h1>
-            <p>Title</p>
-            <input id="titleInput" type="text" autocomplete="off">
-            <p>Host Name</p>
-            <input id="hostNameInput" type="text" autocomplete="off">
-            <p>Date</p>
-            <input id="dateInput" type="date" autocomplete="off">
+        <form id="event-form" onsubmit="event.preventDefault(); submitEvent()" class="gm-style-iw-d">
+            <h3>Create Event</h3>
+
+
+            <p id="title-input-label">Title</p>
+            <input id="title-input" type="text">
+            <p id="hostname-input-label">Host Name</p>
+            <input id="hostname-input" type="text">
+            <p id="date-input-label">Date</p>
+            <input id="date-input" type="date">
             <p>Time Input</p>
-            <input id="timeInput" type="time" autocomplete="off">
+            <input id="time-input" type="time">
             <p>Description</p>
-            <input id="descriptionInput" type="text" autocomplete="off">
-            <button type="submit">Submit</button>
+            <input id="description-input" type="text">
+            <button class="btn btn-primary btn-sm" id="submit-event-button" type="submit">Submit</button>
         </form>
         `
 
@@ -116,11 +119,15 @@ initMap();
 
 function submitEvent() {
     console.log("Event Submitted!");
-    const title = document.getElementById("titleInput").value;
-    const hostName = document.getElementById("hostNameInput").value;
-    const date = document.getElementById("dateInput").value;
-    const time = document.getElementById("timeInput").value;
-    const description = document.getElementById("descriptionInput").value;
+    const title = document.getElementById("title-input").value;
+    const hostName = document.getElementById("hostname-input").value;
+    const date = document.getElementById("date-input").value;
+    const time = document.getElementById("time-input").value;
+    const description = document.getElementById("description-input").value;
+
+    // const date = new Date(dateInput);
+    // const options = { weekday: 'long', month: 'long', day: 'numeric' };
+    // const formattedDate = date.toLocaleDateString('en-US', options);
 
     console.log("markers[0]", markers[0]);
     const marker = markers[0];
@@ -133,7 +140,7 @@ function submitEvent() {
 
     const infoWindow = new google.maps.InfoWindow({
         minWidth: 200,
-        maxWidth: 200
+        maxWidth: 400
     });
 
     google.maps.event.addListener(marker, 'click', function (event) {
@@ -189,10 +196,12 @@ function generateEventsList()
     return events.map(event => 
         `
         <div key=${event.id}>
-        <p>${event.title}</p>
-        <p>${event.hostName}</p>
-        <p>${event.date}</p>
-        <p>${event.time}</p>
+        <p id="event-list-title">${event.title}</p>
+        <p id="event-list-hostName">${event.hostName}</p>
+        <p id="event-list-date">${event.date}</p>
+        <p id="event-list-time">${event.time}</p>
+        <p id="event-list-description">${event.description}</p>
+
         <button type="button" onClick="moveMapToMarkerAtCenter(${event.id}, ${event.markerLat}, ${event.markerLng})">See Location</button>
         </div>
         `).join('');
@@ -256,3 +265,4 @@ window.addEventListener('click', function(event) {
         sidebar.style.display = 'none'; // Hide if clicking outside
     }
 });
+

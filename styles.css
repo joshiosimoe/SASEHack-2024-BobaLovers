@@ -117,3 +117,74 @@ section {
             <p>Description</p>
             <input id="descriptionInput" type="text" autocomplete="off">
             <button type="submit">Submit</button>*/
+
+.gm-style-iw-chr {
+    height: 0px;
+}
+
+
+/* CREATE EVENT INFO WINDOW */
+
+/* #event-form h1 {
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+#event-form p {
+}
+
+
+#title-input {
+    border: none;
+    border-bottom: 1px solid black
+}
+
+#title-input:focus, #hostname-input:focus, #description-input:focus {
+    outline: none;
+}
+
+#hostname-input {
+    border: none;
+    border-bottom: 1px solid black
+}
+
+#date-input {
+    border: none;
+    border-bottom: 1px solid black
+}
+
+#time-input {
+    border: none;
+    border-bottom: 1px solid black
+} */
+
+/* #submit-event-button {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
+} */
+
+/* EVENT LIST ON LEFT PANEL */
+
+#event-list-title {
+    
+}
+
+#event-list-hostName {
+
+}
+
+#event-list-date {
+
+}
+
+#event-list-time {
+
+}
