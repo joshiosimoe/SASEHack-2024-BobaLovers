@@ -32,6 +32,7 @@ h1 {
 /*Ham Menus*/
 .ham-menu {
     font-size: 5vh;
+    color: #24305E;
     cursor: pointer;
     flex-grow: 0;
 }
@@ -64,11 +65,13 @@ h1 {
 
 /* For Sidebar */
 h2 {
-    font-size: 25px !important;
+    font-size: 15px !important;
     font-family: 'Roboto';
+    color: #F76C6C;
     padding-bottom: 5px;
+    padding-left: 7px;
     border-bottom: 2px solid;
-    border-color: #9fa5aa;
+    border-color: #F76C6C;
 }
 
 section {
@@ -114,20 +117,6 @@ section {
 #event-form input {
     margin: 5px 0; /* Adjust as needed */
 }
-
-
-/* <h1>Create Event</h1>
-            <p>Title</p>
-            <input id="titleInput" type="text" autocomplete="off">
-            <p>Host Name</p>
-            <input id="hostNameInput" type="text" autocomplete="off">
-            <p>Date</p>
-            <input id="dateInput" type="text" autocomplete="off">
-            <p>Time Input</p>
-            <input id="timeInput" type="text" autocomplete="off">
-            <p>Description</p>
-            <input id="descriptionInput" type="text" autocomplete="off">
-            <button type="submit">Submit</button>*/
 
 .gm-style-iw-chr {
     height: 0px;
@@ -178,21 +167,10 @@ section {
     /* border-bottom: 1px solid black */
 }
 
-/* #submit-event-button {
-    background-color: #0d6efd;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 5px;
-} */
 
 /* EVENT LIST ON LEFT PANEL */
 #event-list-title {
+    color: #374785;
     margin-top: 5px;
     padding-left: 10px;
     margin-bottom: 0 !important;
@@ -219,7 +197,7 @@ section {
     margin-bottom: 0;
 }
 #event-list-location {
-    /*margin-left: 10px;*/
+    background-color: #A8D0E6;
     display: flex;
     margin-left: auto;
     margin-right: 10px;
@@ -227,11 +205,11 @@ section {
     margin-bottom: 0;
 }
 .event-line {
-    margin-top: 5px; /* Space above the line */
-    border: none; /* Remove default border */
+    margin-top: 5px; 
+    border: none; 
     border-top: 2px solid; 
-    border-color: #9fa5aa; /* Line style */
-    width: 100%; /* Full width */
+    border-color: #F76C6C; 
+    width: 100%; 
 }
 
 
