@@ -29,13 +29,76 @@ h1 {
     margin-right: 4vw;
 }
 
-/*Ham Menus*/
+
+
+
+
+/* Reset the body and html margins and height */
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+/* Hamburger menu button styling */
 .ham-menu {
+    font-size: 4vh; /* Increased size for the icon */
     font-size: 5vh;
     color: BLACK;
     cursor: pointer;
-    flex-grow: 0;
+    z-index: 3; /* Higher z-index to keep it above other elements */
+    position: absolute; /* Position it absolutely */ 
+    left: 20px; /* Position from the left */
+    transition: transform 1s ease; /* Smooth transition for rotation */
 }
+
+/* Sidebar styles */
+.slidemenu {
+    height: 100%; /* Full height */
+    width: 0; /* Initially hidden */
+    position: fixed; /* Keep it fixed to prevent affecting layout */
+    top: 0;
+    left: 0;
+    z-index: 2; /* Lower z-index than the hamburger */
+    background-color: rgb(207, 207, 207);
+    overflow: hidden;
+    padding-top: 50px; /* Space from the top */
+    transition: width 0.5s ease-in-out; /* Animate the width change */
+}
+
+/* Open state of the sidebar */
+.slidemenu.open {
+    width: 250px; /* Set a fixed width for the sidebar when open */
+}
+
+/* Styles for the live events list item */
+.slidemenu ul {
+    margin-top: 20px; /* Move Live Events downward */
+}
+
+.slidemenu li {
+    padding: 10px; /* Space for each item */
+}
+
+/* Main content area */
+#main {
+    position: relative; /* Allow positioning for absolute children */
+    height: 100vh; /* Full viewport height for main content */
+}
+
+/* Styles for the map */
+#map {
+    height: 100%; /* Fill the height of the main section */
+    width: 100%; /* Fill the width of the main section */
+}
+
+/* Adjust the main content when the sidebar is open */
+.slidemenu.open ~ #main {
+    margin-left: 0; /* Keep main content width unchanged */
+}
+
+
+
+
 .sidebar {
     display: none; 
     position: absolute;
