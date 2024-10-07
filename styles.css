@@ -85,11 +85,11 @@ html, body {
     height: 100vh; /* Full viewport height for main content */
 }
 
-/* Styles for the map */
+/* Styles for the map 
 #map {
     height: 100%; /* Fill the height of the main section */
     width: 100%; /* Fill the width of the main section */
-}
+}*/
 
 /* Adjust the main content when the sidebar is open */
 .slidemenu.open ~ #main {
@@ -97,7 +97,11 @@ html, body {
 }
 
 
-
+/*THIS IS ENOUGH OF GOING BACK!!!
+abbr
+aaa
+areaa
+a*/
 
 .sidebar {
     display: none; 
@@ -109,6 +113,11 @@ html, body {
     z-index: 1000; 
     border-right: 2px solid;
     border-color: #9fa5aa;
+    transition: width 0.5s ease-in-out; /* Animate the width change */
+}
+
+.sidebar.open {
+    width: 25vw; /* Set a fixed width for the sidebar when open */
 }
 
 .sidebar ul {
@@ -141,6 +150,13 @@ section {
     flex: auto;
 }
 
+#main {
+    position: relative; /* Allow positioning for absolute children */
+    height: 100vh; /* Full viewport height for main content */
+}
+.sidebar.open ~ #main {
+    margin-left: 0; 
+}
 #map {
     height: 100%;
     /* margin-left:10vh;

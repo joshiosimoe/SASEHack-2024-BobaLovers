@@ -393,18 +393,16 @@ function handleLocationError(browserHasGeolocation, pos) {
 
 document.addEventListener("DOMContentLoaded", function () {
     const hamburgerMenu = document.getElementById("hamburgerMenu");
-    const slideMenu = document.getElementById("slideMenu");
+    const sidebar = document.getElementById("sidebar");
 
     
     hamburgerMenu.addEventListener("click", function () {
-        slideMenu.classList.toggle("open"); 
+        sidebar.classList.toggle("open"); 
 
         
-        if (slideMenu.classList.contains("open")) {
-            // hamburgerMenu.innerHTML = '&times;'; 
+        if (sidebar.classList.contains("open")) {
             hamburgerMenu.classList.add("open"); 
         } else {
-            // hamburgerMenu.innerHTML = '&#9776;'; 
             hamburgerMenu.classList.remove("open"); 
         }
     });
