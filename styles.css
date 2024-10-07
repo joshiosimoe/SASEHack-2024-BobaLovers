@@ -32,6 +32,7 @@ h1 {
 /*Ham Menus*/
 .ham-menu {
     font-size: 5vh;
+    color: BLACK;
     cursor: pointer;
     flex-grow: 0;
 }
@@ -43,6 +44,8 @@ h1 {
     background-color: #fdf7dd;
     padding: 20px;
     z-index: 1000; 
+    border-right: 2px solid;
+    border-color: #9fa5aa;
 }
 
 .sidebar ul {
@@ -58,6 +61,17 @@ h1 {
     font-size: 30px;
     cursor: pointer; /* Change cursor on hover */
     float: right; /* Align to the right */
+}
+
+/* For Sidebar */
+h2 {
+    font-size: 20px !important;
+    font-family: 'Roboto';
+    color: #F76C6C;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    border-bottom: 2px solid;
+    border-color: #F76C6C;
 }
 
 section {
@@ -103,20 +117,6 @@ section {
 #event-form input {
     margin: 5px 0; /* Adjust as needed */
 }
-
-
-/* <h1>Create Event</h1>
-            <p>Title</p>
-            <input id="titleInput" type="text" autocomplete="off">
-            <p>Host Name</p>
-            <input id="hostNameInput" type="text" autocomplete="off">
-            <p>Date</p>
-            <input id="dateInput" type="text" autocomplete="off">
-            <p>Time Input</p>
-            <input id="timeInput" type="text" autocomplete="off">
-            <p>Description</p>
-            <input id="descriptionInput" type="text" autocomplete="off">
-            <button type="submit">Submit</button>*/
 
 .gm-style-iw-chr {
     height: 12px;
@@ -167,37 +167,59 @@ section {
     /* border-bottom: 1px solid black */
 }
 
-/* #submit-event-button {
-    background-color: #0d6efd;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 5px;
-} */
 
 /* EVENT LIST ON LEFT PANEL */
-
 #event-list-title {
-    
+    color: #374785;
+    margin-top: 10px;
+    padding-left: 10px;
+    margin-bottom: 0 !important;
+    font-weight: bold;
 }
-
 #event-list-hostName {
-
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
 #event-list-date {
-
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
 #event-list-time {
-
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
+#event-list-description {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#event-list-location {
+    font-size: 14px;
+    color: #F76C6C;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+#event-list-location:hover {
+    color: #F76C6C;
+    text-decoration: underline;
+}
+.event-line {
+    margin-top: 5px; 
+    border: none; 
+    border-top: 2px solid; 
+    border-color: #F76C6C; 
+    width: 100%; 
+}
 
 
 .marker-info {

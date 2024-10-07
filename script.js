@@ -234,7 +234,8 @@ function generateEventsList()
                 <p id="marker-info-description">${event.description}</p>
             </div>
 
-        <button type="button" onClick="moveMapToMarkerAtCenter(${event.id}, ${event.markerLat}, ${event.markerLng})">See Location</button>
+        <a id="event-list-location" href="javascript:void(0);" onClick="moveMapToMarkerAtCenter(${event.id}, ${event.markerLat}, ${event.markerLng})">See Location</a>
+        <hr class="event-line">
         </div>
         `).join('');
 }
