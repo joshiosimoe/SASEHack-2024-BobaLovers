@@ -225,14 +225,11 @@ function generateEventsList()
 {
     return events.map(event => 
         `
-        <div class="marker-info">
-                <h5 id="marker-info-title">${event.title}</h5>
-                <span id="marker-info-host">Host: ${event.hostName}<br /></span>
-                
-                <p id="marker-info-when">${event.date.month} ${event.date.day}, ${event.date.year} at ${event.time.hour}:${event.time.minute} ${event.time.dayType}</p>
-
-                <p id="marker-info-description">${event.description}</p>
-            </div>
+        <div key=${event.id}>
+        <p id="event-list-title">${event.title}</p>
+        <p id="event-list-hostName">Hosted by: ${event.hostName}</p>
+        <p id="event-list-date">When: ${event.date.month} ${event.date.day}, ${event.date.year} at ${event.time.hour}:${event.time.minute} ${event.time.dayType}</p>
+        <p id="event-list-description">Description: ${event.description}</p>
 
         <a id="event-list-location" href="javascript:void(0);" onClick="moveMapToMarkerAtCenter(${event.id}, ${event.markerLat}, ${event.markerLng})">See Location</a>
         <hr class="event-line">
